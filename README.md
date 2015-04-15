@@ -10,7 +10,7 @@ SMS <a name="SMS"></a>
 Sending
 -------
 
-```
+```js
 var Szc = require('szc')
 var SMS = new Szc.SMS({serviceId: 42, pass: 'thanksforallthefish'})
 
