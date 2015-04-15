@@ -16,7 +16,7 @@ var SMS = new Szc.SMS({serviceId: 42, pass: 'thanksforallthefish'})
 
 var params = {
     clientId: '79012345678',
-    text: 'How many roads must a man walk down?'
+    message: 'How many roads must a man walk down?'
 }
 
 SMS.send(params).then(function(msgId) {
