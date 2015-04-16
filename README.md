@@ -21,12 +21,21 @@ var params = {
     message: 'How many roads must a man walk down?'
 }
 
-SMS.send(params).then(function(msgId) {
+// Send using promise.
+SMS.send(params).then(function (msgId) {
     // Success!
     // msgId is the message's ID on Aggregator's database.
-}, function(err) {
+}, function (err) {
     // Handle error.
 })
+
+// Send using events.
+SMS.on('send:success', function (msgId) {
+    // Success!
+    // msgId is the message's ID on Aggregator's database.
+}).on('send:error', function (err) {
+    // Handle error.
+}).send(params)
 ```
 
 HLR <a name="HLR"></a>
