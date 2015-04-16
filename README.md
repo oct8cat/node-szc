@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/af8c5e803368a5498882e02d77cce5c7/m "wercker status")](https://app.wercker.com/project/bykey/af8c5e803368a5498882e02d77cce5c7)
+
 Trying to try to try to implement [Svyaznoy-Zagruzka services client.](http://docs.zagruzka.com)
 
 * [SMS](#SMS)
