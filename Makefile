@@ -3,23 +3,29 @@ LIB_DIR = lib
 NODE_MODULES_BIN_DIR = node_modules/.bin
 TEST_DIR = test
 
+CLEAN = rm -rf
+CLEAN_TARGET = $(DOC_DIR)
 JSDOC = $(NODE_MODULES_BIN_DIR)/jsdoc
+JSDOC_CONFIG = .jsdocrc
 JSDOC_TARGET = $(LIB_DIR) README.md
 JSHINT = $(NODE_MODULES_BIN_DIR)/jshint
 JSHINT_TARGET = $(LIB_DIR) $(TEST_DIR) index.js
 MOCHA = $(NODE_MODULES_BIN_DIR)/mocha
 MOCHA_TARGET = $(TEST_DIR)
 
-all: jsdoc jshint $(TEST_DIR)
-.PHONY: all
+all: jshint $(TEST_DIR) jsdoc
+
+clean:
+	$(CLEAN) $(CLEAN_TARGET)
 
 jsdoc: $(DOC_DIR)
-	$(JSDOC) -d $< $(JSDOC_TARGET)
-.PHONY: jsdoc
+
+$(DOC_DIR):
+	$(JSDOC) -c $(JSDOC_CONFIG) -d $@ $(JSDOC_TARGET)
+.PHONY: $(DOC_DIR)
 
 jshint:
 	$(JSHINT) $(JSHINT_TARGET)
-.PHONY: jshint
 
 $(TEST_DIR):
 	$(MOCHA) --recursive $(MOCHA_TARGET)
